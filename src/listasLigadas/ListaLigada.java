@@ -6,13 +6,21 @@ public class ListaLigada <T> {
 	
 	private Nodo<T> p = null;
 	
-	
+	/**
+	 * Inserta al inicio de una lista
+	 * @param obj Dato que se ingresara
+	 */
 	public  void insertarInicio(T obj){
 		Nodo<T> t = new Nodo();
 		t.setValor(obj);
 		t.setLiga(p);
 		p = t;
 	}
+	
+	/**
+	 * Inserta al final de la lista
+	 * @param obj
+	 */
 	
 	public void insertarFinal(T obj){
 		// Variable auxiliar
@@ -32,7 +40,9 @@ public class ListaLigada <T> {
 		}
 	}
 	
-	
+	/**
+	 * Muestra en consola la lista completa
+	 */
 	public  void mostrarLista(){
 		//Variable auxiliar
 		Nodo<T> q = p;
@@ -44,6 +54,11 @@ public class ListaLigada <T> {
 		}
 	}
 	
+	/**
+	 * Invierte de orden una lista
+	 * @param lista La lista que se va a invertir
+	 * @return Una lista
+	 */
 	public ListaLigada<T> invierteLista(ListaLigada<T> lista){
 		ListaLigada<T> aux = lista;
 		ListaLigada<T> nueva = new ListaLigada<>();
@@ -61,7 +76,11 @@ public class ListaLigada <T> {
 		
 		return nueva;
 	}
-	
+	/**
+	 * Busca un dato dentro de la lista
+	 * @param dato Dato a buscar dentro de la lista
+	 * @return boolean 
+	 */
 	public boolean buscar(T dato){
 		boolean resultado = false;
 		Nodo<T> q = p;
@@ -74,6 +93,37 @@ public class ListaLigada <T> {
 		}
 		return resultado;
 		
+	}
+	
+	
+	
+	public void insertarAntesDeX(T dato, T x){
+		Nodo<T> q = this.p;
+		Nodo<T> t = null;
+		boolean bandera = true;
+		while(q.getValor()  != x && bandera){
+			if(q.getLiga() != null){
+					t = q;
+					q = q.getLiga();
+			}else{
+				bandera = false;
+			}
+			
+		}
+		if(bandera){
+			Nodo<T> nuevo = new Nodo<T>();
+			nuevo.setValor(dato);
+			if(this.p == q){
+				nuevo.setLiga(p);
+				p = nuevo;
+			}else{
+				t.setLiga(nuevo);
+				nuevo.setLiga(q);
+				
+			}
+		}else{
+			System.out.println("Nodo no esta bajo referencia");
+		}
 	}
 
 	public Nodo<T> getP() {

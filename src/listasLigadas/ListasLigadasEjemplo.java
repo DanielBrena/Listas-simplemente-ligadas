@@ -16,13 +16,14 @@ public class ListasLigadasEjemplo {
 		lista.insertarFinal("3");
 		
 		lista.mostrarLista();
-		System.out.println("----");
-		ListaLigada<String> lista2 = new ListaLigada<>();
+		//System.out.println("----");
+		//ListaLigada<String> lista2 = new ListaLigada<>();
 		
-		lista.invierteLista(lista).mostrarLista();
-		
-		System.out.println(lista.buscar("3"));
-		
+		//lista.invierteLista(lista).mostrarLista();
+		System.out.println("-----");
+		//System.out.println(lista.buscar("3"));
+		lista.insertarAntesDeX("2", "1");
+		lista.mostrarLista();
 	}
 	
 	
