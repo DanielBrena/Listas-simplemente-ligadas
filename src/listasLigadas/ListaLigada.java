@@ -162,12 +162,20 @@ public class ListaLigada <T> {
 		
 	}
 	
+	/**
+	 * Metodo que elimina el nodo del inicio de
+	 * la lista
+	 */
 	public void eliminarInicio(){
 		Nodo<T> q = this.p;
 		p = q.getLiga();
 		
 	}
 	
+	/**
+	 * Metodo que elimina el ultimo nodo de la lista
+	 * 
+	 */
 	public void eliminarUltimo(){
 		Nodo<T> q = this.p;
 		Nodo<T> t = new Nodo<T>();
@@ -181,7 +189,73 @@ public class ListaLigada <T> {
 			t.setLiga(null);
 		}
 	}
-
+	
+	/**
+	 * Metodo que elimina un nodo con informacion x
+	 * @param x Informacion que se buscara dentro de la lista.
+	 */
+	public void eliminarX(T x){
+		Nodo<T> q = this.p;
+		Nodo<T> t = new Nodo<T>();
+		boolean bandera = true;
+		
+		while(q.getValor() != x && bandera){
+			if(q.getLiga() != null){
+				t = q;
+				q = q.getLiga();
+			}else{
+				bandera = false;
+			}
+		}
+		if(!bandera){
+			System.out.println("El elemento con esa informacion, no se encuentra");
+		}else{
+			if(q == this.p){
+				p = q.getLiga();
+			}else{
+				t.setLiga(q.getLiga());
+			}
+		}
+	}
+	
+	/**
+	 * Metodo que elimina un nodo antes con  informacion X de la lista.
+	 * @param x Informacion a buscar para eliminar un nodo anterior.
+	 */
+	public void eliminarAntesDeX(T x){
+		Nodo<T> q = this.p;
+		Nodo<T> t = new Nodo<T>();
+		Nodo<T> r = new Nodo<T>();
+		boolean bandera = true;
+		if(this.p.getValor() == x){
+			System.out.println("No hay valor que proceda de  que contenga X");
+		}else{
+			q = this.p;
+			t = this.p;
+			while(q.getValor() != x && bandera){
+				if(q.getLiga() != null){
+					r = t;
+					t = q;
+					q = q.getLiga();
+				}else{
+					bandera = false;
+				}
+				
+			}
+			if(!bandera){
+				System.out.println("Elemento no se encuentra");
+			}else{
+				if(p.getLiga() == q){
+					p = q;
+				}else{
+					r.setLiga(q);
+				}
+			}
+			
+		}
+		
+	}
+	
 	public Nodo<T> getP() {
 		return p;
 	}

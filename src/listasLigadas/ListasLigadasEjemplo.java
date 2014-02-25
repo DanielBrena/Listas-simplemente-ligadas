@@ -33,6 +33,12 @@ public class ListasLigadasEjemplo {
 		System.out.println("-----");
 		lista.eliminarUltimo();
 		lista.mostrarLista();
+		System.out.println("------");
+		lista.eliminarX("2");
+		lista.mostrarLista();
+		System.out.println("------");
+		lista.eliminarAntesDeX("3");
+		lista.mostrarLista();
 		
 	}
 	
