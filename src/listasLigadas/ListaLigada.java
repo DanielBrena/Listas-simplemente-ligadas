@@ -256,6 +256,58 @@ public class ListaLigada <T> {
 		
 	}
 	
+	/**
+	 * Metodo que buscara cierto dato dentro de la lista.
+	 * @param x Dato que se buscara.
+	 */
+	public void busquedaDesordenada(T x){
+		Nodo<T> q = this.p;
+		while(q.getLiga() != null && q.getValor() != x){
+			q = q.getLiga();
+		}
+		if(q == null){
+			System.out.println("No se encontro el valor");
+		}else{
+			System.out.println("Se encontro el valor dentro de la lista");
+		}
+	}
+	/**
+	 * Metodo que busca ordenadamente, tomando en cuenta que esta ordenada ascendente
+	 * 
+	 * @param x Dato que se buscara dentro de la lista.
+	 */
+	public void busquedaOrdenada(T x){
+		/*
+		 * Metodo que funciona si son nodos del tipo entero
+		Nodo<T> q = this.p;
+		while(q != null && q.getValor() < x){
+			q = q.getLiga();
+		}
+		if(q == null){
+			System.out.println("No se encuentra en la lista");
+		}else{
+			System.out.println("Se encuentra en la lista");
+		}*/
+		
+	}
+	
+	/**
+	 * Metodo que nos realiza una busqueda recursiva-
+	 * @param x Dato a buscar dentro de la lista ligada.
+	 */
+	public void busquedaRecursiva(T x){
+		if(this.p != null){
+			if(p.getValor() == x){
+				System.out.println("Se encontro dentro de la lista");
+			}else{
+				
+				p = p.getLiga();
+				busquedaRecursiva(x);
+			}
+		}else{
+			System.out.println("No se econtro dentro de la lista");
+		}
+	}
 	public Nodo<T> getP() {
 		return p;
 	}

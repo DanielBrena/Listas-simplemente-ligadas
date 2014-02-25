@@ -14,6 +14,7 @@ public class ListasLigadasEjemplo {
 		lista.insertarFinal("1");
 		lista.insertarFinal("2");
 		lista.insertarFinal("3");
+		lista.insertarFinal("6");
 		
 		lista.mostrarLista();
 		//System.out.println("----");
@@ -39,6 +40,10 @@ public class ListasLigadasEjemplo {
 		System.out.println("------");
 		lista.eliminarAntesDeX("3");
 		lista.mostrarLista();
+		System.out.println("------");
+		lista.busquedaDesordenada("4");
+		System.out.println("------");
+		lista.busquedaRecursiva("4");
 		
 	}
 	
