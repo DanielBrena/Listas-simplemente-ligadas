@@ -96,7 +96,13 @@ public class ListaLigada <T> {
 	}
 	
 	
-	
+	/**
+	 * Meotodo que inserta un nodo dentro de la lista, tomando en cuenta
+	 * que lo inserta antes de un valor dado.
+	 * @param dato Nodo que se insertara dentro de la lista.
+	 * @param x Valor que se buscara, para insertar un nuevo nodo
+	 * antes de el.
+	 */
 	public void insertarAntesDeX(T dato, T x){
 		Nodo<T> q = this.p;
 		Nodo<T> t = null;
@@ -123,6 +129,56 @@ public class ListaLigada <T> {
 			}
 		}else{
 			System.out.println("Nodo no esta bajo referencia");
+		}
+	}
+	
+	/**
+	 * 
+	 * Metodo que inserta un nodo dentro de una lista despue de un nodo seleccionado.
+	 * @param dato Dato que sera agregado en la lista.
+	 * @param x Dato que busdara para que despues, agregue otro nodo.
+	 */
+	public void insertarDespuesDeX(T dato, T x){
+		Nodo<T> q = this.p;
+		Nodo<T> t = new Nodo<T>();
+		boolean bandera = true;
+		while(q.getValor() !=  x && bandera){
+			if(q.getLiga() != null){
+				q = q.getLiga();
+			}else{
+				bandera = false;
+			}
+		}
+		
+		if(bandera){
+			t.setValor(dato);
+			t.setLiga(q.getLiga());
+			q.setLiga(t);
+			
+		}else{
+			System.out.println("El nodo no se encuentra en la lista");
+		}
+		
+		
+	}
+	
+	public void eliminarInicio(){
+		Nodo<T> q = this.p;
+		p = q.getLiga();
+		
+	}
+	
+	public void eliminarUltimo(){
+		Nodo<T> q = this.p;
+		Nodo<T> t = new Nodo<T>();
+		if(q.getLiga() == null){
+			this.p = null;
+		}else{
+			while(q.getLiga() != null){
+				t = q;
+				q = q.getLiga();
+			}
+			t.setLiga(null);
 		}
 	}
 

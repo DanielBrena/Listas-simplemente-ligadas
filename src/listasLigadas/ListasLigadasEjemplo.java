@@ -22,8 +22,18 @@ public class ListasLigadasEjemplo {
 		//lista.invierteLista(lista).mostrarLista();
 		System.out.println("-----");
 		//System.out.println(lista.buscar("3"));
-		lista.insertarAntesDeX("2", "1");
+		lista.insertarAntesDeX("0", "1");
 		lista.mostrarLista();
+		lista.insertarDespuesDeX("4", "3");
+		System.out.println("-----");
+		lista.mostrarLista();
+		System.out.println("-----");
+		lista.eliminarInicio();
+		lista.mostrarLista();
+		System.out.println("-----");
+		lista.eliminarUltimo();
+		lista.mostrarLista();
+		
 	}
 	
 	
